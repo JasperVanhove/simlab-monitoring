@@ -1,0 +1,10 @@
+bolt-path: /var/lib/influxdb2/influxd.bolt
+engine-path: /var/lib/influxdb2/engine
+sqlite-path: /var/lib/influxdb2/influxd.sqlite
+http-bind-address: ":8086"
+http-idle-timeout: 10m0s
+log-level: info
+metrics-disabled: true # This can be enabled but needs a secure traefik route to be accessed
+pprof-disabled: true
+reporting-disabled: true
+ui-disabled: false # Set to true in production
