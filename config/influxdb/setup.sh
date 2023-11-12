@@ -6,7 +6,7 @@ source .env
 set +o allexport
 
 echo "Starting Setup for influxdb."
-docker-compose up -d influxdb -f ../../docker-compose.yml
+docker-compose -f ../../docker-compose.yml up -d influxdb
 
 # Starting installation setup influxDB
 echo "Starting installation setup for influxDB..."
