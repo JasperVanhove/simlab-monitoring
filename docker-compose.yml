@@ -56,8 +56,8 @@ services:
     networks:
       - monitoring
       - proxy
-    #    ports:
-    #      - "8086:8086"
+    ports:
+      - "8086:8086"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.influxdb.rule=Host(`influxdb.lotp.test`)"

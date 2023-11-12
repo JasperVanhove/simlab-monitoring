@@ -11,6 +11,8 @@ docker-compose -f ../../docker-compose.yml up -d influxdb
 # Starting installation setup influxDB
 echo "Starting installation setup for influxDB..."
 
+# Wait for influxdb to start
+sleep 5
 docker-compose -f ../../docker-compose.yml exec influxdb influx setup \
   --username ${ADMIN_USERNAME} \
   --password ${ADMIN_PASSWORD} \
@@ -55,14 +57,15 @@ if [ $? -eq 0 ]; then
     # Handle the error here
   fi
 
+  echo "#################################################"
+  echo "Setup for influxdb is completed."
+  echo "Please copy the Organisation ID and Telegraf API Token to the .env file in the telegraf directory."
+  echo "When you are done, please run the setup.sh script in the main directory."
+  echo "#################################################"
+
 else
   echo "InfluxDB setup failed. Check the command for errors."
   # You can add more error handling or take appropriate actions here
 fi
 
-echo "#################################################"
-echo "Setup for influxdb is completed."
-echo "Please copy the Organisation ID and Telegraf API Token to the .env file in the telegraf directory."
-echo "When you are done, please run the setup.sh script in the main directory."
-echo "#################################################"
 

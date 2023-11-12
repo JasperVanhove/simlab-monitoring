@@ -19,7 +19,12 @@ cd config/influxdb
 sudo chmod +x setup.sh
 ./setup.sh
 
+cd ../telegraf
+nano .env
+
 cd ../..
 sudo chmod +x setup.sh
 ./setup.sh
 ```
+
+if everything went well, you should be able to access the grafana dashboard on `http://monitoring.lotp.test` with the username `admin` and the password `admin`.
