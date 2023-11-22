@@ -76,16 +76,18 @@ services:
     image: telegraf:1.28-alpine
     restart: always
     user: telegraf:999  # 999 is the GID for the docker group. This needs to be added to provide the docker.sock access
-    depends_on:
-      - proxy
-      - influxdb
+#    depends_on:
+#      - proxy
+#      - influxdb
+    ports:
+      - "162:162/udp"
     networks:
       - monitoring
       - proxy
     env_file:
       - ./config/telegraf/.env
     volumes:
-      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      - ./config/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - /:/hostfs:ro
     logging:
